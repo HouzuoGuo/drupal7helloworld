@@ -1,0 +1,5 @@
+name = Advanced HelloWorld Example for Drupal 7
+description = This is an advanced hello world example for a Drupal 7 module.
+core = 7.x
+package = Media
+configure = admin/config/media/advhello

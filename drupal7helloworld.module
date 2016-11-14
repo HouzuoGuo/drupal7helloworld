@@ -1,0 +1,62 @@
+<?php
+
+function drupal7helloworld_menu() {
+  return array(
+    'admin/config/media/advhello' => array (
+      'title' => 'Advanced HelloWorld',
+      'description' => 'Define text entries',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('advhello_form'),
+      'access arguments' => array('access administration pages'),
+      'type' => MENU_NORMAL_ITEM,
+    ),
+  );
+}
+
+function advhello_form() {
+  return system_settings_form(array(
+      'conf_texts' => array(
+        't1' => array(
+          '#type' => 'textfield',
+          '#title' => 'Text entry 1',
+          '#description' => 'hoho haha',
+          '#default_value' => variable_get('t1', ''),
+          '#size' => 40,
+          '#maxlength' => 40,
+        ),
+        't2' => array(
+          '#type' => 'textfield',
+          '#title' => 'Text entry 2',
+          '#description' => 'hoho haha',
+          '#default_value' => variable_get('t2', ''),
+          '#size' => 40,
+          '#maxlength' => 40,
+        ),
+        't3' => array(
+          '#type' => 'textfield',
+          '#title' => 'Text entry 3',
+          '#description' => 'hoho haha',
+          '#default_value' => variable_get('t3', ''),
+          '#size' => 40,
+          '#maxlength' => 40,
+        ),
+      ),
+  ));
+}
+
+function drupal7helloworld_ckeditor_plugin() {
+  return array(
+    'plugin_name' => array(
+      'name' => 'Advanced HelloWorld',
+      'desc' => 'Advanced HelloWorld CKEditor',
+      'path' => base_path() . drupal_get_path('module', 'drupal7helloworld') . '/',
+      'buttons' => array(
+        'insert_txt_button' => array(
+          'icon' => 'button.png',
+          'label' => 'Insert Hello Text',
+        )
+      )
+    )
+  );
+}
+
